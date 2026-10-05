@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Student Data Collector</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <style>
+
+        body {
+
+            margin: 0;
+
+            font-family: Arial;
+
+            background: #eef2f7;
+
+        }
+
+        header {
+
+            background: #172554;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+
+        }
+
+        .container {
+
+            width: 92%;
+
+            max-width: 1200px;
+
+            margin: 25px auto;
+
+        }
+
+        .box {
+
+            background: white;
+
+            padding: 25px;
+
+            margin-bottom: 25px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 3px 12px #ccc;
+
+        }
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 15px;
+
+        }
+
+        label {
+
+            font-weight: bold;
+
+            display: block;
+
+            margin-bottom: 6px;
+
+        }
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            padding: 11px;
+
+            border: 1px solid #bbb;
+
+            border-radius: 6px;
+
+            box-sizing: border-box;
+
+        }
+
+        textarea {
+
+            height: 80px;
+
+        }
+
+        button {
+
+            margin-top: 20px;
+
+            padding: 13px 25px;
+
+            background: #2563eb;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+        }
+
+        .table-container {
+
+            overflow-x: auto;
+
+        }
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 1200px;
+
+        }
+
+        th {
+
+            background: #172554;
+
+            color: white;
+
+            padding: 12px;
+
+        }
+
+        td {
+
+            padding: 10px;
+
+            border-bottom: 1px solid #ddd;
+
+        }
+
+        .delete {
+
+            background: #dc2626;
+
+            color: white;
+
+            padding: 7px 10px;
+
+            text-decoration: none;
+
+            border-radius: 5px;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>🎓 Student Data Collector</h1>
+
+    <p>Student Information Management System</p>
+
+</header>
+
+
+<div class="container">
+
+
+<div class="box">
+
+    <h2>Student Registration</h2>
+
+
+    <form
+        action="/add"
+        method="POST">
+
+
+        <div class="form-grid">
+
+
+            <div>
+
+                <label>Admission Number</label>
+
+                <input
+                    type="text"
+                    name="admission_no"
+                    placeholder="ADM001">
+
+            </div>
+
+
+            <div>
+
+                <label>Student Name *</label>
+
+                <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Enter student name">
+
+            </div>
+
+
+            <div>
+
+                <label>Date of Birth</label>
+
+                <input
+                    type="date"
+                    name="dob">
+
+            </div>
+
+
+            <div>
+
+                <label>Age</label>
+
+                <input
+                    type="number"
+                    name="age"
+                    min="1"
+                    max="100">
+
+            </div>
+
+
+            <div>
+
+                <label>Gender</label>
+
+                <select name="gender">
+
+                    <option value="">
+                        Select Gender
+                    </option>
+
+                    <option>
+                        Male
+                    </option>
+
+                    <option>
+                        Female
+                    </option>
+
+                    <option>
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>Father's Name</label>
+
+                <input
+                    type="text"
+                    name="father_name"
+                    placeholder="Father's name">
+
+            </div>
+
+
+            <div>
+
+                <label>Mother's Name</label>
+
+                <input
+                    type="text"
+                    name="mother_name"
+                    placeholder="Mother's name">
+
+            </div>
+
+
+            <div>
+
+                <label>Phone Number</label>
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone number">
+
+            </div>
+
+
+            <div>
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="student@email.com">
+
+            </div>
+
+
+            <div>
+
+                <label>Department</label>
+
+                <select name="department">
+
+                    <option value="">
+                        Select Department
+                    </option>
+
+                    <option>
+                        Computer Engineering
+                    </option>
+
+                    <option>
+                        Computer Science
+                    </option>
+
+                    <option>
+                        Information Technology
+                    </option>
+
+                    <option>
+                        Artificial Intelligence
+                    </option>
+
+                    <option>
+                        Electronics
+                    </option>
+
+                    <option>
+                        Mechanical
+                    </option>
+
+                    <option>
+                        Civil
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>Course</label>
+
+                <input
+                    type="text"
+                    name="course"
+                    placeholder="B.E / B.Tech">
+
+            </div>
+
+
+            <div>
+
+                <label>Year</label>
+
+                <select name="year">
+
+                    <option value="">
+                        Select Year
+                    </option>
+
+                    <option>
+                        1st Year
+                    </option>
+
+                    <option>
+                        2nd Year
+                    </option>
+
+                    <option>
+                        3rd Year
+                    </option>
+
+                    <option>
+                        4th Year
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>Blood Group</label>
+
+                <select name="blood_group">
+
+                    <option value="">
+                        Select Blood Group
+                    </option>
+
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+
+                </select>
+
+            </div>
+
+
+            <div style="grid-column: 1 / -1;">
+
+                <label>Address</label>
+
+                <textarea
+                    name="address"
+                    placeholder="Enter student's address">
+                </textarea>
+
+            </div>
+
+
+        </div>
+
+
+        <button type="submit">
+
+            ➕ ADD STUDENT
+
+        </button>
+
+
+    </form>
+
+</div>
+
+
+
+<div class="box">
+
+    <h2>Student Records</h2>
+
+
+    <div class="table-container">
+
+        <table>
+
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Admission No</th>
+
+                <th>Name</th>
+
+                <th>DOB</th>
+
+                <th>Age</th>
+
+                <th>Gender</th>
+
+                <th>Father Name</th>
+
+                <th>Mother Name</th>
+
+                <th>Phone</th>
+
+                <th>Department</th>
+
+                <th>Course</th>
+
+                <th>Year</th>
+
+                <th>Blood Group</th>
+
+                <th>Action</th>
+
+            </tr>
+
+
+            {% for student in students %}
+
+
+            <tr>
+
+                <td>
+                    {{ student.id }}
+                </td>
+
+                <td>
+                    {{ student.admission_no }}
+                </td>
+
+                <td>
+                    {{ student.name }}
+                </td>
+
+                <td>
+                    {{ student.dob }}
+                </td>
+
+                <td>
+                    {{ student.age }}
+                </td>
+
+                <td>
+                    {{ student.gender }}
+                </td>
+
+                <td>
+                    {{ student.father_name }}
+                </td>
+
+                <td>
+                    {{ student.mother_name }}
+                </td>
+
+                <td>
+                    {{ student.phone }}
+                </td>
+
+                <td>
+                    {{ student.department }}
+                </td>
+
+                <td>
+                    {{ student.course }}
+                </td>
+
+                <td>
+                    {{ student.year }}
+                </td>
+
+                <td>
+                    {{ student.blood_group }}
+                </td>
+
+                <td>
+
+                    <a
+                        class="delete"
+                        href="/delete/{{ student.id }}"
+                        onclick="return confirm('Delete this student?');">
+
+                        Delete
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+
+            {% else %}
+
+
+            <tr>
+
+                <td
+                    colspan="14"
+                    style="text-align:center">
+
+                    No student records yet.
+
+                </td>
+
+            </tr>
+
+
+            {% endfor %}
+
+
+        </table>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</body>
+
+</html>
